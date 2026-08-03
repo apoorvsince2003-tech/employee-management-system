@@ -20,6 +20,16 @@ public class DepartmentController {
     // Add Department
     @PostMapping
     public Department addDepartment(@RequestBody Department department) {
+
+        System.out.println("===== DEPARTMENT RECEIVED =====");
+        System.out.println("Name: " + department.getName());
+        System.out.println("Code: " + department.getCode());
+        System.out.println("Description: " + department.getDescription());
+        System.out.println("Head Name: " + department.getHeadName());
+        System.out.println("Employee Count: " + department.getEmployeeCount());
+        System.out.println("Budget: " + department.getBudget());
+        System.out.println("Date: " + department.getEstablishedDate());
+
         return service.addDepartment(department);
     }
 
