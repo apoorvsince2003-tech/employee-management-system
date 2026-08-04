@@ -8,7 +8,7 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String name;
 
@@ -20,7 +20,7 @@ public class Department {
 
     private String headName;
 
-    private int employeeCount;
+    private Integer employeeCount = 0;
 
     private double budget;
 
@@ -31,7 +31,7 @@ public class Department {
     public Department() {
     }
 
-    public Department(int id, String name, String code, String description,
+    public Department(Integer id, String name, String code, String description,
                       String headId, String headName,
                       int employeeCount, double budget,
                       String establishedDate, String color) {
@@ -48,11 +48,11 @@ public class Department {
         this.color = color;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -96,11 +96,11 @@ public class Department {
         this.headName = headName;
     }
 
-    public int getEmployeeCount() {
+    public Integer getEmployeeCount() {
         return employeeCount;
     }
 
-    public void setEmployeeCount(int employeeCount) {
+    public void setEmployeeCount(Integer employeeCount) {
         this.employeeCount = employeeCount;
     }
 
