@@ -1,0 +1,1 @@
+import{X as t}from"./index-CtFqtZmX.js";const d={list:()=>t.get("/attendance"),trend:()=>t.get("/attendance/trend"),byEmployee:e=>t.get(`/attendance/employee/${e}`),today:()=>t.get("/attendance/today"),create:e=>t.post("/attendance",e),getById:e=>t.get(`/attendance/${e}`),update:(e,a)=>t.put(`/attendance/${e}`,a),remove:e=>t.delete(`/attendance/${e}`)};export{d as a};

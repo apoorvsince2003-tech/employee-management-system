@@ -37,10 +37,12 @@ public class TeamService {
                     .ifPresent(d -> team.setDepartmentName(d.getName()));
 
             employeeRepository.findById(team.getLeadId().intValue())
-                    .ifPresent(e -> team.setLeadName(e.getFirstName() + " " + e.getLastName()));
+            .ifPresent(e -> team.setLeadName(e.getFirstName() + " " + e.getLastName()));
 
-            projectRepository.findById(team.getProjectId())
-                    .ifPresent(p -> team.setProjectName(p.getName()));
+    if (team.getProjectId() != null) {
+        projectRepository.findById(team.getProjectId())
+                .ifPresent(p -> team.setProjectName(p.getName()));
+    }
         }
 
         return teams;
@@ -60,8 +62,10 @@ public class TeamService {
         employeeRepository.findById(team.getLeadId().intValue())
                 .ifPresent(e -> team.setLeadName(e.getFirstName() + " " + e.getLastName()));
 
-        projectRepository.findById(team.getProjectId())
-                .ifPresent(p -> team.setProjectName(p.getName()));
+        if (team.getProjectId() != null) {
+            projectRepository.findById(team.getProjectId())
+                    .ifPresent(p -> team.setProjectName(p.getName()));
+        }
 
         return repository.save(team);
     }
@@ -77,8 +81,10 @@ public class TeamService {
         employeeRepository.findById(team.getLeadId().intValue())
                 .ifPresent(e -> team.setLeadName(e.getFirstName() + " " + e.getLastName()));
 
-        projectRepository.findById(team.getProjectId())
-                .ifPresent(p -> team.setProjectName(p.getName()));
+        if (team.getProjectId() != null) {
+            projectRepository.findById(team.getProjectId())
+                    .ifPresent(p -> team.setProjectName(p.getName()));
+        }
 
         return repository.save(team);
     }

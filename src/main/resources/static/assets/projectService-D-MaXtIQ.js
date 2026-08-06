@@ -1,0 +1,1 @@
+import{X as t}from"./index-CtFqtZmX.js";const c={list:()=>t.get("/projects"),getById:e=>t.get(`/projects/${e}`),byTeam:e=>t.get("/projects",{teamId:e}),create:e=>t.post("/projects",e),update:(e,o)=>t.put(`/projects/${e}`,o),remove:e=>t.delete(`/projects/${e}`),activeCount:()=>t.get("/projects/active-count")};export{c as p};

@@ -1,0 +1,1 @@
+import{X as e}from"./index-CtFqtZmX.js";const a={list:()=>e.get("/departments"),getById:t=>e.get(`/departments/${t}`),create:t=>e.post("/departments",t),update:(t,r)=>e.put(`/departments/${t}`,r),remove:t=>e.delete(`/departments/${t}`),distribution:()=>e.get("/departments/distribution"),activeProjects:t=>e.get(`/departments/${t}/active-projects`)};export{a as d};

@@ -20,6 +20,14 @@ public class EmployeeController {
     // Add Employee
     @PostMapping
     public Employee addEmployee(@RequestBody Employee employee) {
+
+        System.out.println("===============");
+        System.out.println("POST HIT");
+        System.out.println(employee.getEmployeeCode());
+        System.out.println(employee.getFirstName());
+        System.out.println(employee.getEmail());
+        System.out.println("===============");
+
         return service.addEmployee(employee);
     }
 

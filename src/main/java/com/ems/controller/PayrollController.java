@@ -36,9 +36,20 @@ public class PayrollController {
         return service.getPayrollById(id);
     }
     @GetMapping("/trend")
-    public List<Map<String, Object>> getTrend() {
+    public List<Map<String, Object>> getTrend()
+    {
         return service.getPayrollTrend();
     }
+    @GetMapping("/bands")
+    public List<Map<String, Object>> getBands() {
+        return service.getSalaryBands();
+    }
+    
+    @GetMapping("/revisions")
+    public List<Map<String, Object>> getRevisions() {
+        return service.getSalaryRevisions();
+    }
+    
 
     @GetMapping("/totals")
     public Map<String, Object> getTotals() {

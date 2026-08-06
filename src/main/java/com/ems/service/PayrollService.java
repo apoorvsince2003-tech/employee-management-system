@@ -1,10 +1,13 @@
 package com.ems.service;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import com.ems.entity.Employee;
+import com.ems.repository.EmployeeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,8 @@ public class PayrollService {
 
     @Autowired
     private PayrollRepository repository;
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
     // Add Payroll
     public Payroll addPayroll(Payroll payroll) {
@@ -25,7 +30,31 @@ public class PayrollService {
 
     // Get All Payrolls
     public List<Payroll> getAllPayrolls() {
-        return repository.findAll();
+
+        List<Employee> employees = employeeRepository.findAll();
+
+        List<Payroll> payrolls = new ArrayList<>();
+
+        for (Employee e : employees) {
+
+            Payroll p = new Payroll();
+
+            p.setId(e.getId());
+
+            p.setEmployeeName(e.getFirstName() + " " + e.getLastName());
+
+            p.setBasicSalary(e.getSalary());
+
+            p.setBonus(0);
+
+            p.setDeduction(0);
+
+            p.setNetSalary(e.getSalary());
+
+            payrolls.add(p);
+        }
+
+        return payrolls;
     }
 
     // Get Payroll By ID
@@ -62,19 +91,22 @@ public class PayrollService {
         List<Map<String, Object>> trend = new ArrayList<>();
 
         trend.add(Map.of(
-                "month", "Jan",
-                "payroll", 120000
-        ));
+        	    "month", "Jan",
+        	    "total", 120000,
+        	    "headcount", 10
+        	));
 
         trend.add(Map.of(
-                "month", "Feb",
-                "payroll", 135000
-        ));
+        	    "month", "Feb",
+        	    "total", 135000,
+        	    "headcount", 10
+        	));
 
         trend.add(Map.of(
-                "month", "Mar",
-                "payroll", 150000
-        ));
+        	    "month", "Mar",
+        	    "total", 150000,
+        	    "headcount", 10
+        	));
 
         return trend;
     }
@@ -82,28 +114,91 @@ public class PayrollService {
     // Payroll Totals
     public Map<String, Object> getPayrollTotals() {
 
-        List<Payroll> payrolls = repository.findAll();
+        List<Employee> employees = employeeRepository.findAll();
 
-        double payroll = payrolls.stream()
-                .mapToDouble(Payroll::getNetSalary)
+        double payroll = employees.stream()
+                .mapToDouble(Employee::getSalary)
                 .sum();
 
-        double avg = payrolls.stream()
-                .mapToDouble(Payroll::getNetSalary)
+        double avg = employees.stream()
+                .mapToDouble(Employee::getSalary)
                 .average()
                 .orElse(0);
-
-        double bonus = payrolls.stream()
-                .mapToDouble(Payroll::getBonus)
-                .sum();
 
         Map<String, Object> result = new HashMap<>();
 
         result.put("monthlyPayroll", payroll);
         result.put("averageSalary", avg);
-        result.put("bonusPool", bonus);
-        result.put("headcount", repository.count());
+        result.put("bonusPool", 0);
+        result.put("headcount", employees.size());
 
         return result;
     }
+    
+ // Salary Bands
+    public List<Map<String, Object>> getSalaryBands() {
+
+        List<Map<String, Object>> bands = new ArrayList<>();
+
+        bands.add(Map.of(
+                "band", "0-25K",
+                "count", 5
+        ));
+
+        bands.add(Map.of(
+                "band", "25K-50K",
+                "count", 8
+        ));
+
+        bands.add(Map.of(
+                "band", "50K-75K",
+                "count", 4
+        ));
+
+        bands.add(Map.of(
+                "band", "75K+",
+                "count", 2
+        ));
+
+        return bands;
+    }
+
+    // Salary Revisions
+    public List<Map<String, Object>> getSalaryRevisions() {
+
+        List<Map<String, Object>> revisions = new ArrayList<>();
+
+        Map<String, Object> r1 = new HashMap<>();
+        r1.put("id", 1);
+        r1.put("employeeName", "Rahul Sharma");
+        r1.put("designation", "Java Developer");
+        r1.put("departmentName", "IT");
+        r1.put("type", "Increment");
+        r1.put("previousSalary", 45000);
+        r1.put("newSalary", 50000);
+        r1.put("changeAmount", 5000);
+        r1.put("changePercent", 11.11);
+        r1.put("effectiveDate", "2026-08-01");
+        r1.put("reason", "Annual Performance Review");
+
+        revisions.add(r1);
+
+        Map<String, Object> r2 = new HashMap<>();
+        r2.put("id", 2);
+        r2.put("employeeName", "Priya Singh");
+        r2.put("designation", "HR Manager");
+        r2.put("departmentName", "HR");
+        r2.put("type", "Increment");
+        r2.put("previousSalary", 60000);
+        r2.put("newSalary", 65000);
+        r2.put("changeAmount", 5000);
+        r2.put("changePercent", 8.33);
+        r2.put("effectiveDate", "2026-08-05");
+        r2.put("reason", "Promotion");
+
+        revisions.add(r2);
+
+        return revisions;
+    }
+    
 }
