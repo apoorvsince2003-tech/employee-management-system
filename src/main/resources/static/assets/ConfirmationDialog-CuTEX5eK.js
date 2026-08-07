@@ -1,0 +1,6 @@
+import{c as o,j as e,af as m,B as a}from"./index-BfJaDd1y.js";import{M as f}from"./Modal-C5NnEEX1.js";/**
+ * @license lucide-react v0.344.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const u=o("Eye",[["path",{d:"M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z",key:"rwhkz3"}],["circle",{cx:"12",cy:"12",r:"3",key:"1v7zrd"}]]);function y({open:s,onClose:r,onConfirm:i,title:n,description:c,confirmLabel:l="Confirm",cancelLabel:x="Cancel",destructive:t,loading:d}){return e.jsxs(f,{open:s,onClose:r,size:"sm",children:[e.jsxs("div",{className:"flex flex-col items-center text-center",children:[e.jsx("div",{className:`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl ${t?"bg-error-50 text-error-600 dark:bg-error-500/15 dark:text-error-400":"bg-brand-secondary text-brand-accent dark:bg-mint-600/15"}`,children:e.jsx(m,{size:22})}),e.jsx("h3",{className:"text-lg font-semibold text-[var(--text-primary)]",children:n}),e.jsx("p",{className:"mt-2 text-sm text-[var(--text-secondary)]",children:c})]}),e.jsxs("div",{className:"mt-6 flex gap-3",children:[e.jsx(a,{variant:"outline",fullWidth:!0,onClick:r,children:x}),e.jsx(a,{variant:t?"danger":"primary",fullWidth:!0,loading:d,onClick:i,children:l})]})]})}export{y as C,u as E};

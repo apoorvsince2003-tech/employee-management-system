@@ -1,0 +1,1 @@
+import{X as t}from"./index-BfJaDd1y.js";const s={list:()=>t.get("/notices"),getById:e=>t.get(`/notices/${e}`),create:e=>t.post("/notices",e),update:(e,o)=>t.put(`/notices/${e}`,o),remove:e=>t.delete(`/notices/${e}`)};export{s as n};

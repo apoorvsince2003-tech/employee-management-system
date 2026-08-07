@@ -1,0 +1,1 @@
+import{X as o}from"./index-BfJaDd1y.js";const a={list:()=>o.get("/holidays"),upcoming:(e=5)=>o.get("/holidays/upcoming",{limit:e}),getById:e=>o.get(`/holidays/${e}`),create:e=>o.post("/holidays",e),update:(e,i)=>o.put(`/holidays/${e}`,i),remove:e=>o.delete(`/holidays/${e}`)};export{a as h};
