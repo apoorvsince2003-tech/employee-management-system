@@ -15,7 +15,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(nullable = false)
     private String employeeCode;
@@ -39,7 +39,7 @@ public class Employee {
 
     private String status;
 
-    private double salary;
+    private Double salary;
 
     private String joinDate;
 
