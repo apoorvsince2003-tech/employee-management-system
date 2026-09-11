@@ -10,7 +10,6 @@ import jakarta.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Employee {
 
     @Id
@@ -26,6 +25,10 @@ public class Employee {
 
     @Column(unique = true)
     private String email;
+
+    private String password;
+
+    private String role;
 
     private String phone;
 
@@ -49,133 +52,148 @@ public class Employee {
 
     private String managerName;
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getEmployeeCode() {
-		return employeeCode;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setEmployeeCode(String employeeCode) {
-		this.employeeCode = employeeCode;
-	}
+    public String getEmployeeCode() {
+        return employeeCode;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setEmployeeCode(String employeeCode) {
+        this.employeeCode = employeeCode;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getPhone() {
-		return phone;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getDepartmentId() {
-		return departmentId;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setDepartmentId(String departmentId) {
-		this.departmentId = departmentId;
-	}
+    public String getRole() {
+        return role;
+    }
 
-	public String getDepartmentName() {
-		return departmentName;
-	}
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public String getDesignation() {
-		return designation;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
+    public String getDepartmentId() {
+        return departmentId;
+    }
 
-	public String getEmploymentType() {
-		return employmentType;
-	}
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
 
-	public void setEmploymentType(String employmentType) {
-		this.employmentType = employmentType;
-	}
+    public String getDepartmentName() {
+        return departmentName;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public String getDesignation() {
+        return designation;
+    }
 
-	public double getSalary() {
-		return salary;
-	}
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
 
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
+    public String getEmploymentType() {
+        return employmentType;
+    }
 
-	public String getJoinDate() {
-		return joinDate;
-	}
+    public void setEmploymentType(String employmentType) {
+        this.employmentType = employmentType;
+    }
 
-	public void setJoinDate(String joinDate) {
-		this.joinDate = joinDate;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public String getLocation() {
-		return location;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
+    public double getSalary() {
+        return salary;
+    }
 
-	public String getManagerId() {
-		return managerId;
-	}
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
 
-	public void setManagerId(String managerId) {
-		this.managerId = managerId;
-	}
+    public String getJoinDate() {
+        return joinDate;
+    }
 
-	public String getManagerName() {
-		return managerName;
-	}
+    public void setJoinDate(String joinDate) {
+        this.joinDate = joinDate;
+    }
 
-	public void setManagerName(String managerName) {
-		this.managerName = managerName;
-	}
+    public String getLocation() {
+        return location;
+    }
 
-   
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getManagerId() {
+        return managerId;
+    }
+
+    public void setManagerId(String managerId) {
+        this.managerId = managerId;
+    }
+
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
+    }
 }
